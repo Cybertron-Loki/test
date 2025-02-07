@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "concert_tickets",
+  "info": {
+    "singularName": "concert-ticket",
+    "pluralName": "concert-tickets",
+    "displayName": "ConcertTicket",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ticketNumber": {
+      "type": "integer"
+    },
+    "saleStartTime": {
+      "type": "datetime"
+    },
+    "saleFininshTime": {
+      "type": "datetime"
+    },
+    "concert": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ticket.ticket",
+      "inversedBy": "concert_ticket"
+    },
+    "ticketStatus": {
+      "type": "boolean"
+    },
+    "priceA": {
+      "type": "decimal"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tickets",
+  "info": {
+    "singularName": "ticket",
+    "pluralName": "tickets",
+    "displayName": "Concert",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "performanceDate": {
+      "type": "datetime"
+    },
+    "description": {
+      "type": "text"
+    },
+    "poster": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "place": {
+      "type": "string"
+    },
+    "concert_ticket": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::concert-ticket.concert-ticket",
+      "mappedBy": "concert"
+    },
+    "artist": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::artist.artist",
+      "inversedBy": "concerts"
+    }
+  }
+}
